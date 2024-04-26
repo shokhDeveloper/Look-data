@@ -1,0 +1,15 @@
+extend type Query {
+  foods(foodId: ID): [Food]
+}
+extend type Mutation {
+    addFood(foodName: String! foodImg: String): MutationResponse
+    changeFood(foodId:ID! foodName: String foodImg: String): MutationResponse
+    deleteFood(foodId:ID!): MutationResponse 
+}
+# neitral types
+
+type Food {
+  foodId: ID
+  foodName: String
+  foodImg: String
+}

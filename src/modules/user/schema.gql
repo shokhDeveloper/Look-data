@@ -1,0 +1,30 @@
+extend type Query {
+  users(userId: ID, pagination: Pagination = {}, search: String): [User]
+}
+
+extend type Mutation {
+  addUser(username: String!, contact: Contact!): MutationResponse
+  delUser(userId: ID!): MutationResponse
+  changeUser(userId: ID username:String, contact: Contact): MutationResponse
+}
+
+# neitral types
+scalar Contact
+scalar Any
+
+type MutationResponse {
+  status: Int
+  message: String
+  data: Any
+}
+
+type User {
+  userId: ID
+  username: String
+  contact: Contact
+}
+
+input Pagination {
+  page: Int = 1 
+  limit: Int = 5
+}
